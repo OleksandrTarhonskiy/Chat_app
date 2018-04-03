@@ -441,3 +441,992 @@ ChatChannel#create({"content"=>"sddsdsdsds"})
 ChatChannel transmitting {"id"=>26, "created_at"=>"08:39", "content"=>"sddsdsdsds"} (via streamed from chat_channel)
   [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" ORDER BY "chat_messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" LIMIT $1[0m  [["LIMIT", 11]]
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:09:00 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:09:01 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:09:01 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:35 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:42:46 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:42:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:48 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:48 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:50 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:50 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:42:50 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:42:50 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:49:21 +0300
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:50:38 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:50:38 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"sddsdssddsds"})
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (98.8ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sddsdssddsds"], ["created_at", "2018-04-03 09:50:44.108890"], ["updated_at", "2018-04-03 09:50:44.108890"]]
+  [1m[35m (60.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 20bbe94d-8ce2-463c-aca7-69233eae7c93) to Async(default) with arguments: #<GlobalID:0x000000010fdc40 @uri=#<URI::GID gid://chat-app/ChatMessage/27>>
+  [1m[36mChatMessage Load (26.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [20bbe94d-8ce2-463c-aca7-69233eae7c93] Performing ChatMessageCreationEventBroadcastJob (Job ID: 20bbe94d-8ce2-463c-aca7-69233eae7c93) from Async(default) with arguments: #<GlobalID:0x00000002e8ba50 @uri=#<URI::GID gid://chat-app/ChatMessage/27>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [20bbe94d-8ce2-463c-aca7-69233eae7c93] [ActionCable] Broadcasting to chat_channel: {:id=>27, :created_at=>"09:50", :content=>"sddsdssddsds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [20bbe94d-8ce2-463c-aca7-69233eae7c93] Performed ChatMessageCreationEventBroadcastJob (Job ID: 20bbe94d-8ce2-463c-aca7-69233eae7c93) from Async(default) in 1.28ms
+ChatChannel transmitting {"id"=>27, "created_at"=>"09:50", "content"=>"sddsdssddsds"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>27, "created_at"=>"09:50", "content"=>"sddsdssddsds"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"dsdsdsqq"})
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "dsdsdsqq"], ["created_at", "2018-04-03 09:50:47.933781"], ["updated_at", "2018-04-03 09:50:47.933781"]]
+  [1m[35m (45.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 721167d8-82e9-4749-b9d8-827a77f295ab) to Async(default) with arguments: #<GlobalID:0x00000002e2f750 @uri=#<URI::GID gid://chat-app/ChatMessage/28>>
+  [1m[36mChatMessage Load (1.2ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [721167d8-82e9-4749-b9d8-827a77f295ab] Performing ChatMessageCreationEventBroadcastJob (Job ID: 721167d8-82e9-4749-b9d8-827a77f295ab) from Async(default) with arguments: #<GlobalID:0x00000002e05ec8 @uri=#<URI::GID gid://chat-app/ChatMessage/28>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [721167d8-82e9-4749-b9d8-827a77f295ab] [ActionCable] Broadcasting to chat_channel: {:id=>28, :created_at=>"09:50", :content=>"dsdsdsqq"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [721167d8-82e9-4749-b9d8-827a77f295ab] Performed ChatMessageCreationEventBroadcastJob (Job ID: 721167d8-82e9-4749-b9d8-827a77f295ab) from Async(default) in 1.21ms
+ChatChannel transmitting {"id"=>28, "created_at"=>"09:50", "content"=>"dsdsdsqq"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>28, "created_at"=>"09:50", "content"=>"dsdsdsqq"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:52:03 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:52:04 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:52:04 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+ChatChannel stopped streaming from chat_channel
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 12:54:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/" for 127.0.0.1 at 2018-04-03 12:59:00 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/oleksandr/.rvm/gems/ruby-2.4.0/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/oleksandr/.rvm/gems/ruby-2.4.0/gems/railties-5.1.2/lib/rails/templates/rails/welcome/index.html.erb (55.1ms)
+Completed 200 OK in 156ms (Views: 131.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-04-03 12:59:02 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-04-03 12:59:02 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 12:59:11 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/messages"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 12:59:45 +0300
+Started GET "/cable/"[non-WebSocket] for 127.0.0.1 at 2018-04-03 12:59:45 +0300
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/cable/"[non-WebSocket] for 127.0.0.1 at 2018-04-03 12:59:45 +0300
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:01:11 +0300
+ChatChannel stopped streaming from chat_channel
+ChatChannel#create({"content"=>"addaddaad"})
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "addaddaad"], ["created_at", "2018-04-03 10:02:26.597620"], ["updated_at", "2018-04-03 10:02:26.597620"]]
+  [1m[35m (46.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 256b14f1-8ac8-4bde-99cf-ac3a42d88824) to Async(default) with arguments: #<GlobalID:0x00000002d75558 @uri=#<URI::GID gid://chat-app/ChatMessage/29>>
+  [1m[36mChatMessage Load (1.1ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [256b14f1-8ac8-4bde-99cf-ac3a42d88824] Performing ChatMessageCreationEventBroadcastJob (Job ID: 256b14f1-8ac8-4bde-99cf-ac3a42d88824) from Async(default) with arguments: #<GlobalID:0x00000002c0d990 @uri=#<URI::GID gid://chat-app/ChatMessage/29>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [256b14f1-8ac8-4bde-99cf-ac3a42d88824] [ActionCable] Broadcasting to chat_channel: {:id=>29, :created_at=>"10:02", :content=>"addaddaad"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [256b14f1-8ac8-4bde-99cf-ac3a42d88824] Performed ChatMessageCreationEventBroadcastJob (Job ID: 256b14f1-8ac8-4bde-99cf-ac3a42d88824) from Async(default) in 1.45ms
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:02:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:02:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:08:34 +0300
+  [1m[35m (31.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/"[non-WebSocket] for 127.0.0.1 at 2018-04-03 13:08:35 +0300
+Failed to upgrade to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, HTTP_UPGRADE: )
+Finished "/cable/"[non-WebSocket] for 127.0.0.1 at 2018-04-03 13:08:35 +0300
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:08:41 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 43ms (Views: 29.2ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:09:01 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:09:01 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:18:07 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:20:53 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:20:53 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:25:56 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:25:56 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:25:56 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:28:02 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:28:03 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:28:03 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:28:59 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:29:00 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:29:00 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assaas"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.2ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assaas"], ["created_at", "2018-04-03 10:29:04.920013"], ["updated_at", "2018-04-03 10:29:04.920013"]]
+  [1m[35m (89.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 9eef756f-6c0f-47e6-9786-bbe3214df713) to Async(default) with arguments: #<GlobalID:0x000000041434e0 @uri=#<URI::GID gid://chat-app/ChatMessage/30>>
+  [1m[36mChatMessage Load (6.1ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9eef756f-6c0f-47e6-9786-bbe3214df713] Performing ChatMessageCreationEventBroadcastJob (Job ID: 9eef756f-6c0f-47e6-9786-bbe3214df713) from Async(default) with arguments: #<GlobalID:0x000000041028a0 @uri=#<URI::GID gid://chat-app/ChatMessage/30>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9eef756f-6c0f-47e6-9786-bbe3214df713] [ActionCable] Broadcasting to chat_channel: {:id=>30, :created_at=>"10:29", :content=>"assaas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9eef756f-6c0f-47e6-9786-bbe3214df713] Performed ChatMessageCreationEventBroadcastJob (Job ID: 9eef756f-6c0f-47e6-9786-bbe3214df713) from Async(default) in 156.42ms
+ChatChannel transmitting {"id"=>30, "created_at"=>"10:29", "content"=>"assaas"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:29:33 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:29:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:29:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:19 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:30:19 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:19 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:41 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:30:41 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:41 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:47 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:30:47 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:30:47 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:31:41 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:31:42 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:31:42 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:32:58 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:34:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:34:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:36:54 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:36:55 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:36:55 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:36:55 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:36:55 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:37:55 +0300
+ChatChannel stopped streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:37:55 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:37:56 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:37:56 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:37:56 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.7ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:40:21 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:40:21 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:40:21 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:40:22 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:40:42 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:40:42 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:40:42 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:40:42 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:41:04 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:41:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:41:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:41:05 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.6ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:41:08 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:41:08 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:41:08 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:41:09 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:00 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:42:00 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:00 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:42:00 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.6ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:11 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:42:12 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:12 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:42:13 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:17 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:42:18 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:18 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:42:18 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:42:56 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:43:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:43:05 +0300
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:43:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:43:48 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:43:49 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:43:49 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:43:49 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:44:17 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:44:18 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:44:18 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:44:18 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:44:39 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:44:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:44:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:44:40 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:45:04 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:45:04 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:45:04 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:45:04 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:45:06 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:45:07 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:45:07 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:45:07 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:46:22 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:46:22 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:46:22 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:46:23 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:47:15 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:47:16 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:47:16 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:47:18 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:47:19 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:47:19 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:01 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:48:02 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:02 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:07 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:48:08 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:08 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assasasa"})
+  [1m[35m (14.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (203.9ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasasa"], ["created_at", "2018-04-03 10:48:12.867451"], ["updated_at", "2018-04-03 10:48:12.867451"]]
+  [1m[35m (72.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: edc3ec3a-dfca-4221-969b-992227b8ea6b) to Async(default) with arguments: #<GlobalID:0x007f49ec06f058 @uri=#<URI::GID gid://chat-app/ChatMessage/31>>
+  [1m[36mChatMessage Load (2.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [edc3ec3a-dfca-4221-969b-992227b8ea6b] Performing ChatMessageCreationEventBroadcastJob (Job ID: edc3ec3a-dfca-4221-969b-992227b8ea6b) from Async(default) with arguments: #<GlobalID:0x007f49e804bfa8 @uri=#<URI::GID gid://chat-app/ChatMessage/31>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [edc3ec3a-dfca-4221-969b-992227b8ea6b] [ActionCable] Broadcasting to chat_channel: {:id=>31, :created_at=>"10:48", :content=>"assasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [edc3ec3a-dfca-4221-969b-992227b8ea6b] Performed ChatMessageCreationEventBroadcastJob (Job ID: edc3ec3a-dfca-4221-969b-992227b8ea6b) from Async(default) in 12.7ms
+ChatChannel transmitting {"id"=>31, "created_at"=>"10:48", "content"=>"assasasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:22 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:48:23 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:23 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:30 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:48:31 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:48:31 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:48:31 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms)
+
+
+ChatChannel#create({"content"=>"asasas"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asasas"], ["created_at", "2018-04-03 10:48:34.862645"], ["updated_at", "2018-04-03 10:48:34.862645"]]
+  [1m[35m (26.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: ff04dd84-8098-4178-aeda-0d473cca8f76) to Async(default) with arguments: #<GlobalID:0x007f49e8018bd0 @uri=#<URI::GID gid://chat-app/ChatMessage/32>>
+  [1m[36mChatMessage Load (0.9ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ff04dd84-8098-4178-aeda-0d473cca8f76] Performing ChatMessageCreationEventBroadcastJob (Job ID: ff04dd84-8098-4178-aeda-0d473cca8f76) from Async(default) with arguments: #<GlobalID:0x007f49ec01e090 @uri=#<URI::GID gid://chat-app/ChatMessage/32>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ff04dd84-8098-4178-aeda-0d473cca8f76] [ActionCable] Broadcasting to chat_channel: {:id=>32, :created_at=>"10:48", :content=>"asasas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ff04dd84-8098-4178-aeda-0d473cca8f76] Performed ChatMessageCreationEventBroadcastJob (Job ID: ff04dd84-8098-4178-aeda-0d473cca8f76) from Async(default) in 1.17ms
+ChatChannel transmitting {"id"=>32, "created_at"=>"10:48", "content"=>"asasas"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"xsxsxsxs"})
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "xsxsxsxs"], ["created_at", "2018-04-03 10:49:22.688688"], ["updated_at", "2018-04-03 10:49:22.688688"]]
+  [1m[35m (32.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 83981ff7-be2d-47ef-a9e8-13baccaa87b2) to Async(default) with arguments: #<GlobalID:0x007f49e000f380 @uri=#<URI::GID gid://chat-app/ChatMessage/33>>
+  [1m[36mChatMessage Load (1.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [83981ff7-be2d-47ef-a9e8-13baccaa87b2] Performing ChatMessageCreationEventBroadcastJob (Job ID: 83981ff7-be2d-47ef-a9e8-13baccaa87b2) from Async(default) with arguments: #<GlobalID:0x007f4a1c07b648 @uri=#<URI::GID gid://chat-app/ChatMessage/33>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [83981ff7-be2d-47ef-a9e8-13baccaa87b2] [ActionCable] Broadcasting to chat_channel: {:id=>33, :created_at=>"10:49", :content=>"xsxsxsxs"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [83981ff7-be2d-47ef-a9e8-13baccaa87b2] Performed ChatMessageCreationEventBroadcastJob (Job ID: 83981ff7-be2d-47ef-a9e8-13baccaa87b2) from Async(default) in 1.27ms
+ChatChannel transmitting {"id"=>33, "created_at"=>"10:49", "content"=>"xsxsxsxs"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 10:49:24.207357"], ["updated_at", "2018-04-03 10:49:24.207357"]]
+  [1m[35m (27.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 6239ed13-0883-4cc0-a0b0-36859cad729a) to Async(default) with arguments: #<GlobalID:0x007f4a1c03c920 @uri=#<URI::GID gid://chat-app/ChatMessage/34>>
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6239ed13-0883-4cc0-a0b0-36859cad729a] Performing ChatMessageCreationEventBroadcastJob (Job ID: 6239ed13-0883-4cc0-a0b0-36859cad729a) from Async(default) with arguments: #<GlobalID:0x007f4a1c031e08 @uri=#<URI::GID gid://chat-app/ChatMessage/34>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6239ed13-0883-4cc0-a0b0-36859cad729a] [ActionCable] Broadcasting to chat_channel: {:id=>34, :created_at=>"10:49", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6239ed13-0883-4cc0-a0b0-36859cad729a] Performed ChatMessageCreationEventBroadcastJob (Job ID: 6239ed13-0883-4cc0-a0b0-36859cad729a) from Async(default) in 0.76ms
+ChatChannel transmitting {"id"=>34, "created_at"=>"10:49", "content"=>""} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:49:25 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:49:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:49:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:49:25 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.5ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:50:13 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:50:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:50:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:50:15 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:50:45 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:50:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:50:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:50:46 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:51:11 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:51:12 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:51:12 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:51:12 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:51:25 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:51:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:51:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:51:26 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:52:25 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:52:25 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:52:25 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:52:25 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.7ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+  [1m[36mChatMessage Load (0.9ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mChatMessage Load (1.4ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 1]]
+  [1m[35m (42.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 2]]
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 3]]
+  [1m[35m (30.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 4]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 5]]
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 6]]
+  [1m[35m (30.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 7]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 8]]
+  [1m[35m (23.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 9]]
+  [1m[35m (22.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 10]]
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 11]]
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 12]]
+  [1m[35m (31.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 13]]
+  [1m[35m (28.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 14]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 15]]
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 16]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 17]]
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 18]]
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 19]]
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 20]]
+  [1m[35m (29.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 21]]
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 22]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 23]]
+  [1m[35m (29.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 24]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 25]]
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 26]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 27]]
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 28]]
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 29]]
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 30]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 31]]
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 32]]
+  [1m[35m (30.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 33]]
+  [1m[35m (54.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "chat_messages" WHERE "chat_messages"."id" = $1[0m  [["id", 34]]
+  [1m[35m (29.2ms)[0m  [1m[35mCOMMIT[0m
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:53:49 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:53:49 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:53:49 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:53:49 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"Hi"})
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "Hi"], ["created_at", "2018-04-03 10:53:53.850348"], ["updated_at", "2018-04-03 10:53:53.850348"]]
+  [1m[35m (33.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 37a9e83e-13f8-450e-9cfd-605fd233a2fc) to Async(default) with arguments: #<GlobalID:0x007f49ec05ef78 @uri=#<URI::GID gid://chat-app/ChatMessage/35>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [37a9e83e-13f8-450e-9cfd-605fd233a2fc] Performing ChatMessageCreationEventBroadcastJob (Job ID: 37a9e83e-13f8-450e-9cfd-605fd233a2fc) from Async(default) with arguments: #<GlobalID:0x007f49e803c620 @uri=#<URI::GID gid://chat-app/ChatMessage/35>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [37a9e83e-13f8-450e-9cfd-605fd233a2fc] [ActionCable] Broadcasting to chat_channel: {:id=>35, :created_at=>"10:53", :content=>"Hi"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [37a9e83e-13f8-450e-9cfd-605fd233a2fc] Performed ChatMessageCreationEventBroadcastJob (Job ID: 37a9e83e-13f8-450e-9cfd-605fd233a2fc) from Async(default) in 0.85ms
+ChatChannel transmitting {"id"=>35, "created_at"=>"10:53", "content"=>"Hi"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:56:54 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:56:55 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:56:55 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:56:55 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+ChatChannel#create({"content"=>"assasasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasasa"], ["created_at", "2018-04-03 10:57:08.349156"], ["updated_at", "2018-04-03 10:57:08.349156"]]
+  [1m[35m (81.9ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753) to Async(default) with arguments: #<GlobalID:0x007f4a1c014b50 @uri=#<URI::GID gid://chat-app/ChatMessage/36>>
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753] Performing ChatMessageCreationEventBroadcastJob (Job ID: 8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753) from Async(default) with arguments: #<GlobalID:0x007f49e8008fa0 @uri=#<URI::GID gid://chat-app/ChatMessage/36>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753] [ActionCable] Broadcasting to chat_channel: {:id=>36, :created_at=>"10:57", :content=>"assasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753] Performed ChatMessageCreationEventBroadcastJob (Job ID: 8e5cf12b-f3ab-4e86-99dc-f3dbb9cac753) from Async(default) in 0.58ms
+ChatChannel transmitting {"id"=>36, "created_at"=>"10:57", "content"=>"assasasa"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"sasasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sasasa"], ["created_at", "2018-04-03 10:57:10.345568"], ["updated_at", "2018-04-03 10:57:10.345568"]]
+  [1m[35m (86.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: ac1cfcd2-794c-4782-a53b-35d9a8250149) to Async(default) with arguments: #<GlobalID:0x007f4a28138bd8 @uri=#<URI::GID gid://chat-app/ChatMessage/37>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ac1cfcd2-794c-4782-a53b-35d9a8250149] Performing ChatMessageCreationEventBroadcastJob (Job ID: ac1cfcd2-794c-4782-a53b-35d9a8250149) from Async(default) with arguments: #<GlobalID:0x007f4a2812e250 @uri=#<URI::GID gid://chat-app/ChatMessage/37>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ac1cfcd2-794c-4782-a53b-35d9a8250149] [ActionCable] Broadcasting to chat_channel: {:id=>37, :created_at=>"10:57", :content=>"sasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ac1cfcd2-794c-4782-a53b-35d9a8250149] Performed ChatMessageCreationEventBroadcastJob (Job ID: ac1cfcd2-794c-4782-a53b-35d9a8250149) from Async(default) in 1.11ms
+ChatChannel transmitting {"id"=>37, "created_at"=>"10:57", "content"=>"sasasa"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"assasa"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasa"], ["created_at", "2018-04-03 10:57:12.224377"], ["updated_at", "2018-04-03 10:57:12.224377"]]
+  [1m[35m (49.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 22969819-ef8d-4fc8-bdc4-81a57ce6fcc2) to Async(default) with arguments: #<GlobalID:0x007f4a2810deb0 @uri=#<URI::GID gid://chat-app/ChatMessage/38>>
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [22969819-ef8d-4fc8-bdc4-81a57ce6fcc2] Performing ChatMessageCreationEventBroadcastJob (Job ID: 22969819-ef8d-4fc8-bdc4-81a57ce6fcc2) from Async(default) with arguments: #<GlobalID:0x007f4a280f6c88 @uri=#<URI::GID gid://chat-app/ChatMessage/38>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [22969819-ef8d-4fc8-bdc4-81a57ce6fcc2] [ActionCable] Broadcasting to chat_channel: {:id=>38, :created_at=>"10:57", :content=>"assasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [22969819-ef8d-4fc8-bdc4-81a57ce6fcc2] Performed ChatMessageCreationEventBroadcastJob (Job ID: 22969819-ef8d-4fc8-bdc4-81a57ce6fcc2) from Async(default) in 0.41ms
+ChatChannel transmitting {"id"=>38, "created_at"=>"10:57", "content"=>"assasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:58:34 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:58:34 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:58:34 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:58:34 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"asassasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asassasa"], ["created_at", "2018-04-03 10:59:05.992556"], ["updated_at", "2018-04-03 10:59:05.992556"]]
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 6939f942-59d5-431d-9ac7-06a5f84bd380) to Async(default) with arguments: #<GlobalID:0x007f4a247444e0 @uri=#<URI::GID gid://chat-app/ChatMessage/39>>
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6939f942-59d5-431d-9ac7-06a5f84bd380] Performing ChatMessageCreationEventBroadcastJob (Job ID: 6939f942-59d5-431d-9ac7-06a5f84bd380) from Async(default) with arguments: #<GlobalID:0x007f4a24724eb0 @uri=#<URI::GID gid://chat-app/ChatMessage/39>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6939f942-59d5-431d-9ac7-06a5f84bd380] [ActionCable] Broadcasting to chat_channel: {:id=>39, :created_at=>"10:59", :content=>"asassasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6939f942-59d5-431d-9ac7-06a5f84bd380] Performed ChatMessageCreationEventBroadcastJob (Job ID: 6939f942-59d5-431d-9ac7-06a5f84bd380) from Async(default) in 0.62ms
+ChatChannel transmitting {"id"=>39, "created_at"=>"10:59", "content"=>"asassasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:59:23 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:59:24 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:59:24 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:59:24 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assasa"})
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasa"], ["created_at", "2018-04-03 10:59:37.354186"], ["updated_at", "2018-04-03 10:59:37.354186"]]
+  [1m[35m (41.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: a950ad78-1dfc-4e56-a5dd-bc0e176f9340) to Async(default) with arguments: #<GlobalID:0x007f4a2464c718 @uri=#<URI::GID gid://chat-app/ChatMessage/40>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a950ad78-1dfc-4e56-a5dd-bc0e176f9340] Performing ChatMessageCreationEventBroadcastJob (Job ID: a950ad78-1dfc-4e56-a5dd-bc0e176f9340) from Async(default) with arguments: #<GlobalID:0x007f4a24638718 @uri=#<URI::GID gid://chat-app/ChatMessage/40>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a950ad78-1dfc-4e56-a5dd-bc0e176f9340] [ActionCable] Broadcasting to chat_channel: {:id=>40, :created_at=>"10:59", :content=>"assasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a950ad78-1dfc-4e56-a5dd-bc0e176f9340] Performed ChatMessageCreationEventBroadcastJob (Job ID: a950ad78-1dfc-4e56-a5dd-bc0e176f9340) from Async(default) in 1.26ms
+ChatChannel transmitting {"id"=>40, "created_at"=>"10:59", "content"=>"assasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:59:49 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 13:59:49 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 13:59:49 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 13:59:49 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assasasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasasa"], ["created_at", "2018-04-03 10:59:52.300044"], ["updated_at", "2018-04-03 10:59:52.300044"]]
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 6f866de5-0458-43c1-97fc-84f4cd653a9a) to Async(default) with arguments: #<GlobalID:0x00000004130e80 @uri=#<URI::GID gid://chat-app/ChatMessage/41>>
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6f866de5-0458-43c1-97fc-84f4cd653a9a] Performing ChatMessageCreationEventBroadcastJob (Job ID: 6f866de5-0458-43c1-97fc-84f4cd653a9a) from Async(default) with arguments: #<GlobalID:0x00000004120670 @uri=#<URI::GID gid://chat-app/ChatMessage/41>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6f866de5-0458-43c1-97fc-84f4cd653a9a] [ActionCable] Broadcasting to chat_channel: {:id=>41, :created_at=>"10:59", :content=>"assasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [6f866de5-0458-43c1-97fc-84f4cd653a9a] Performed ChatMessageCreationEventBroadcastJob (Job ID: 6f866de5-0458-43c1-97fc-84f4cd653a9a) from Async(default) in 0.48ms
+ChatChannel transmitting {"id"=>41, "created_at"=>"10:59", "content"=>"assasasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:03:49 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 14:03:50 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:03:50 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 14:03:50 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/messages"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assasa"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasa"], ["created_at", "2018-04-03 11:04:04.025159"], ["updated_at", "2018-04-03 11:04:04.025159"]]
+  [1m[35m (84.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: ec4c4190-b62b-4ae2-8050-c354444bc42e) to Async(default) with arguments: #<GlobalID:0x007f49dc09cfe0 @uri=#<URI::GID gid://chat-app/ChatMessage/42>>
+  [1m[36mChatMessage Load (1.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ec4c4190-b62b-4ae2-8050-c354444bc42e] Performing ChatMessageCreationEventBroadcastJob (Job ID: ec4c4190-b62b-4ae2-8050-c354444bc42e) from Async(default) with arguments: #<GlobalID:0x007f49d806e770 @uri=#<URI::GID gid://chat-app/ChatMessage/42>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ec4c4190-b62b-4ae2-8050-c354444bc42e] [ActionCable] Broadcasting to chat_channel: {:id=>42, :created_at=>"11:04", :content=>"assasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ec4c4190-b62b-4ae2-8050-c354444bc42e] Performed ChatMessageCreationEventBroadcastJob (Job ID: ec4c4190-b62b-4ae2-8050-c354444bc42e) from Async(default) in 1.24ms
+ChatChannel transmitting {"id"=>42, "created_at"=>"11:04", "content"=>"assasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:04:05 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 14:04:05 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:04:05 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 14:04:05 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/messages"):
+  
+actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.2) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.2) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:04:13 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 14:04:14 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 14:04:14 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 14:04:14 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT "chat_messages".* FROM "chat_messages"[0m
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 3.6ms)
+
+
