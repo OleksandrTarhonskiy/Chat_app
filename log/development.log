@@ -2181,3 +2181,81 @@ Filter chain halted as :authenticate_user! rendered or redirected
 Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
 
 
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 16:52:38 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+LoadError (Unable to autoload constant ApplicationController, expected /media/oleksandr/New Volume/chat-app/app/controllers/application_controller.rb to define it):
+  
+app/controllers/messages_controller.rb:1:in `<top (required)>'
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 16:52:42 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:52:43 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/users" for 127.0.0.1 at 2018-04-03 16:52:44 +0300
+  
+LoadError (Unable to autoload constant ApplicationController, expected /media/oleksandr/New Volume/chat-app/app/controllers/application_controller.rb to define it):
+  
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Started GET "/users" for 127.0.0.1 at 2018-04-03 16:52:57 +0300
+  
+LoadError (Unable to autoload constant ApplicationController, expected /media/oleksandr/New Volume/chat-app/app/controllers/application_controller.rb to define it):
+  
+app/controllers/users_controller.rb:1:in `<top (required)>'
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:57:46 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 16:57:47 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Processing by MessagesController#index as HTML
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 16ms (ActiveRecord: 2.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 16:57:57 +0300
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/users" for 127.0.0.1 at 2018-04-03 17:00:05 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+No serializer found for resource: #<User id: 1, email: "aassa@sdds.com", first_name: "asasa", last_name: "sddsd", password_digest: "$2a$10$mKgQxQCkTk5g/XzQ19i2ieEqsf7jII9.BYAEZV0l/Ig...", token: "9SoH6bPoQeNdhsNK3mz9Tusc", created_at: "2018-04-03 13:33:43", updated_at: "2018-04-03 13:33:43">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with User::ActiveRecord_Relation (0.51ms)
+Completed 200 OK in 69ms (Views: 49.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 17:00:10 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 17:00:10 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 17:00:11 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 17:00:11 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 17:00:11 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 17:00:12 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/messages" for 127.0.0.1 at 2018-04-03 17:00:20 +0300
+Processing by MessagesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
