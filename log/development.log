@@ -1,0 +1,443 @@
+  [1m[35m (464.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (151.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (83.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5611949142403597455);[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateChatMessages (20170730025855)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (129.0ms)[0m  [1m[35mCREATE TABLE "chat_messages" ("id" bigserial primary key, "content" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170730025855"]]
+  [1m[35m (31.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-03 08:06:02.431250"], ["updated_at", "2018-04-03 08:06:02.431250"]]
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(5611949142403597455)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:06:27 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:06:27 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:06:32 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:06:32 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:06:32 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"sasasasasa"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sasasasasa"], ["created_at", "2018-04-03 08:06:35.603849"], ["updated_at", "2018-04-03 08:06:35.603849"]]
+  [1m[35m (29.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: b05de13c-fd7f-461b-8b3f-a9fbc17db571) to Async(default) with arguments: #<GlobalID:0x00000002c2b7d8 @uri=#<URI::GID gid://chat-app/ChatMessage/1>>
+  [1m[36mChatMessage Load (0.6ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [b05de13c-fd7f-461b-8b3f-a9fbc17db571] Performing ChatMessageCreationEventBroadcastJob (Job ID: b05de13c-fd7f-461b-8b3f-a9fbc17db571) from Async(default) with arguments: #<GlobalID:0x00000002b657b8 @uri=#<URI::GID gid://chat-app/ChatMessage/1>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [b05de13c-fd7f-461b-8b3f-a9fbc17db571] [ActionCable] Broadcasting to chat_channel: {:id=>1, :created_at=>"08:06", :content=>"sasasasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [b05de13c-fd7f-461b-8b3f-a9fbc17db571] Performed ChatMessageCreationEventBroadcastJob (Job ID: b05de13c-fd7f-461b-8b3f-a9fbc17db571) from Async(default) in 52.56ms
+ChatChannel transmitting {"id"=>1, "created_at"=>"08:06", "content"=>"sasasasasa"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"asasasas"})
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asasasas"], ["created_at", "2018-04-03 08:07:04.739024"], ["updated_at", "2018-04-03 08:07:04.739024"]]
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: d2ecad70-0025-435a-913c-bda5f7504921) to Async(default) with arguments: #<GlobalID:0x00000002a71a28 @uri=#<URI::GID gid://chat-app/ChatMessage/2>>
+  [1m[36mChatMessage Load (1.0ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [d2ecad70-0025-435a-913c-bda5f7504921] Performing ChatMessageCreationEventBroadcastJob (Job ID: d2ecad70-0025-435a-913c-bda5f7504921) from Async(default) with arguments: #<GlobalID:0x00000002a57e98 @uri=#<URI::GID gid://chat-app/ChatMessage/2>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [d2ecad70-0025-435a-913c-bda5f7504921] [ActionCable] Broadcasting to chat_channel: {:id=>2, :created_at=>"08:07", :content=>"asasasas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [d2ecad70-0025-435a-913c-bda5f7504921] Performed ChatMessageCreationEventBroadcastJob (Job ID: d2ecad70-0025-435a-913c-bda5f7504921) from Async(default) in 1.7ms
+ChatChannel transmitting {"id"=>2, "created_at"=>"08:07", "content"=>"asasasas"} (via streamed from chat_channel)
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:07:15 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:07:15 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"sasaassa"})
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sasaassa"], ["created_at", "2018-04-03 08:07:19.460305"], ["updated_at", "2018-04-03 08:07:19.460305"]]
+  [1m[35m (33.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 00c02268-2a03-4b63-8e18-704a5afef8ad) to Async(default) with arguments: #<GlobalID:0x000000029c1ce0 @uri=#<URI::GID gid://chat-app/ChatMessage/3>>
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [00c02268-2a03-4b63-8e18-704a5afef8ad] Performing ChatMessageCreationEventBroadcastJob (Job ID: 00c02268-2a03-4b63-8e18-704a5afef8ad) from Async(default) with arguments: #<GlobalID:0x000000029b3438 @uri=#<URI::GID gid://chat-app/ChatMessage/3>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [00c02268-2a03-4b63-8e18-704a5afef8ad] [ActionCable] Broadcasting to chat_channel: {:id=>3, :created_at=>"08:07", :content=>"sasaassa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [00c02268-2a03-4b63-8e18-704a5afef8ad] Performed ChatMessageCreationEventBroadcastJob (Job ID: 00c02268-2a03-4b63-8e18-704a5afef8ad) from Async(default) in 0.35ms
+ChatChannel transmitting {"id"=>3, "created_at"=>"08:07", "content"=>"sasaassa"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>3, "created_at"=>"08:07", "content"=>"sasaassa"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"rrrrr"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "rrrrr"], ["created_at", "2018-04-03 08:07:30.171697"], ["updated_at", "2018-04-03 08:07:30.171697"]]
+  [1m[35m (46.0ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 347a8b1e-ea47-4320-abd2-2b5a1cbeee58) to Async(default) with arguments: #<GlobalID:0x0000000293a830 @uri=#<URI::GID gid://chat-app/ChatMessage/4>>
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [347a8b1e-ea47-4320-abd2-2b5a1cbeee58] Performing ChatMessageCreationEventBroadcastJob (Job ID: 347a8b1e-ea47-4320-abd2-2b5a1cbeee58) from Async(default) with arguments: #<GlobalID:0x00000002931820 @uri=#<URI::GID gid://chat-app/ChatMessage/4>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [347a8b1e-ea47-4320-abd2-2b5a1cbeee58] [ActionCable] Broadcasting to chat_channel: {:id=>4, :created_at=>"08:07", :content=>"rrrrr"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [347a8b1e-ea47-4320-abd2-2b5a1cbeee58] Performed ChatMessageCreationEventBroadcastJob (Job ID: 347a8b1e-ea47-4320-abd2-2b5a1cbeee58) from Async(default) in 0.36ms
+ChatChannel transmitting {"id"=>4, "created_at"=>"08:07", "content"=>"rrrrr"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>4, "created_at"=>"08:07", "content"=>"rrrrr"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"draste"})
+  [1m[35m (3.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "draste"], ["created_at", "2018-04-03 08:07:40.525569"], ["updated_at", "2018-04-03 08:07:40.525569"]]
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 2e0aa5bf-058e-4376-9dc2-694bc7932f6b) to Async(default) with arguments: #<GlobalID:0x000000023c9630 @uri=#<URI::GID gid://chat-app/ChatMessage/5>>
+  [1m[36mChatMessage Load (1.4ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2e0aa5bf-058e-4376-9dc2-694bc7932f6b] Performing ChatMessageCreationEventBroadcastJob (Job ID: 2e0aa5bf-058e-4376-9dc2-694bc7932f6b) from Async(default) with arguments: #<GlobalID:0x00000002385b38 @uri=#<URI::GID gid://chat-app/ChatMessage/5>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2e0aa5bf-058e-4376-9dc2-694bc7932f6b] [ActionCable] Broadcasting to chat_channel: {:id=>5, :created_at=>"08:07", :content=>"draste"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2e0aa5bf-058e-4376-9dc2-694bc7932f6b] Performed ChatMessageCreationEventBroadcastJob (Job ID: 2e0aa5bf-058e-4376-9dc2-694bc7932f6b) from Async(default) in 1.3ms
+ChatChannel transmitting {"id"=>5, "created_at"=>"08:07", "content"=>"draste"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>5, "created_at"=>"08:07", "content"=>"draste"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"sddsds"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sddsds"], ["created_at", "2018-04-03 08:11:15.700462"], ["updated_at", "2018-04-03 08:11:15.700462"]]
+  [1m[35m (22.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: a9d2a431-193f-4c83-b77f-1f7188b60de9) to Async(default) with arguments: #<GlobalID:0x00000002cdcc40 @uri=#<URI::GID gid://chat-app/ChatMessage/6>>
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a9d2a431-193f-4c83-b77f-1f7188b60de9] Performing ChatMessageCreationEventBroadcastJob (Job ID: a9d2a431-193f-4c83-b77f-1f7188b60de9) from Async(default) with arguments: #<GlobalID:0x00000002cbc2d8 @uri=#<URI::GID gid://chat-app/ChatMessage/6>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a9d2a431-193f-4c83-b77f-1f7188b60de9] [ActionCable] Broadcasting to chat_channel: {:id=>6, :created_at=>"08:11", :content=>"sddsds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [a9d2a431-193f-4c83-b77f-1f7188b60de9] Performed ChatMessageCreationEventBroadcastJob (Job ID: a9d2a431-193f-4c83-b77f-1f7188b60de9) from Async(default) in 0.44ms
+ChatChannel transmitting {"id"=>6, "created_at"=>"08:11", "content"=>"sddsds"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>6, "created_at"=>"08:11", "content"=>"sddsds"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"wqwqwqwq"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "wqwqwqwq"], ["created_at", "2018-04-03 08:11:19.446523"], ["updated_at", "2018-04-03 08:11:19.446523"]]
+  [1m[35m (29.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578) to Async(default) with arguments: #<GlobalID:0x00000002c57f68 @uri=#<URI::GID gid://chat-app/ChatMessage/7>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578] Performing ChatMessageCreationEventBroadcastJob (Job ID: 0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578) from Async(default) with arguments: #<GlobalID:0x00000002c3c538 @uri=#<URI::GID gid://chat-app/ChatMessage/7>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578] [ActionCable] Broadcasting to chat_channel: {:id=>7, :created_at=>"08:11", :content=>"wqwqwqwq"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578] Performed ChatMessageCreationEventBroadcastJob (Job ID: 0aa34ec7-afb6-47d1-ab1b-a92c6fa5c578) from Async(default) in 0.61ms
+ChatChannel transmitting {"id"=>7, "created_at"=>"08:11", "content"=>"wqwqwqwq"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>7, "created_at"=>"08:11", "content"=>"wqwqwqwq"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"assasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasa"], ["created_at", "2018-04-03 08:11:29.971176"], ["updated_at", "2018-04-03 08:11:29.971176"]]
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 248f3bff-4122-42c2-958d-964462490bb5) to Async(default) with arguments: #<GlobalID:0x00000002b961d8 @uri=#<URI::GID gid://chat-app/ChatMessage/8>>
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [248f3bff-4122-42c2-958d-964462490bb5] Performing ChatMessageCreationEventBroadcastJob (Job ID: 248f3bff-4122-42c2-958d-964462490bb5) from Async(default) with arguments: #<GlobalID:0x00000002b79dd0 @uri=#<URI::GID gid://chat-app/ChatMessage/8>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [248f3bff-4122-42c2-958d-964462490bb5] [ActionCable] Broadcasting to chat_channel: {:id=>8, :created_at=>"08:11", :content=>"assasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [248f3bff-4122-42c2-958d-964462490bb5] Performed ChatMessageCreationEventBroadcastJob (Job ID: 248f3bff-4122-42c2-958d-964462490bb5) from Async(default) in 0.82ms
+ChatChannel transmitting {"id"=>8, "created_at"=>"08:11", "content"=>"assasa"} (via streamed from chat_channel)
+ChatChannel transmitting {"id"=>8, "created_at"=>"08:11", "content"=>"assasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:11:49 +0300
+ChatChannel stopped streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:16:53 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:16:53 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:16:53 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"asassasa"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asassasa"], ["created_at", "2018-04-03 08:16:57.415893"], ["updated_at", "2018-04-03 08:16:57.415893"]]
+  [1m[35m (33.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 8697b349-1573-4eb0-9c0e-294968c249e1) to Async(default) with arguments: #<GlobalID:0x00000001574620 @uri=#<URI::GID gid://chat-app/ChatMessage/9>>
+  [1m[36mChatMessage Load (0.9ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8697b349-1573-4eb0-9c0e-294968c249e1] Performing ChatMessageCreationEventBroadcastJob (Job ID: 8697b349-1573-4eb0-9c0e-294968c249e1) from Async(default) with arguments: #<GlobalID:0x00000001828dd0 @uri=#<URI::GID gid://chat-app/ChatMessage/9>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8697b349-1573-4eb0-9c0e-294968c249e1] [ActionCable] Broadcasting to chat_channel: {:id=>9, :created_at=>"08:16", :content=>"asassasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8697b349-1573-4eb0-9c0e-294968c249e1] Performed ChatMessageCreationEventBroadcastJob (Job ID: 8697b349-1573-4eb0-9c0e-294968c249e1) from Async(default) in 1.26ms
+ChatChannel transmitting {"id"=>9, "created_at"=>"08:16", "content"=>"asassasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:17:08 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:17:08 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:17:08 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assaasas"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assaasas"], ["created_at", "2018-04-03 08:17:14.329966"], ["updated_at", "2018-04-03 08:17:14.329966"]]
+  [1m[35m (26.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: def447c6-cf01-47f4-9264-3ee7e77a4e1d) to Async(default) with arguments: #<GlobalID:0x00000002e50338 @uri=#<URI::GID gid://chat-app/ChatMessage/10>>
+  [1m[36mChatMessage Load (1.4ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [def447c6-cf01-47f4-9264-3ee7e77a4e1d] Performing ChatMessageCreationEventBroadcastJob (Job ID: def447c6-cf01-47f4-9264-3ee7e77a4e1d) from Async(default) with arguments: #<GlobalID:0x00000002e2e8f0 @uri=#<URI::GID gid://chat-app/ChatMessage/10>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [def447c6-cf01-47f4-9264-3ee7e77a4e1d] [ActionCable] Broadcasting to chat_channel: {:id=>10, :created_at=>"08:17", :content=>"assaasas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [def447c6-cf01-47f4-9264-3ee7e77a4e1d] Performed ChatMessageCreationEventBroadcastJob (Job ID: def447c6-cf01-47f4-9264-3ee7e77a4e1d) from Async(default) in 1.25ms
+ChatChannel transmitting {"id"=>10, "created_at"=>"08:17", "content"=>"assaasas"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:19:35 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:19:35 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:19:35 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"sasaas"})
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sasaas"], ["created_at", "2018-04-03 08:19:38.389421"], ["updated_at", "2018-04-03 08:19:38.389421"]]
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 124a4be6-c9aa-4a41-8736-7d3182632eca) to Async(default) with arguments: #<GlobalID:0x00000002b36878 @uri=#<URI::GID gid://chat-app/ChatMessage/11>>
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [124a4be6-c9aa-4a41-8736-7d3182632eca] Performing ChatMessageCreationEventBroadcastJob (Job ID: 124a4be6-c9aa-4a41-8736-7d3182632eca) from Async(default) with arguments: #<GlobalID:0x00000002b19228 @uri=#<URI::GID gid://chat-app/ChatMessage/11>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [124a4be6-c9aa-4a41-8736-7d3182632eca] [ActionCable] Broadcasting to chat_channel: {:id=>11, :created_at=>"08:19", :content=>"sasaas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [124a4be6-c9aa-4a41-8736-7d3182632eca] Performed ChatMessageCreationEventBroadcastJob (Job ID: 124a4be6-c9aa-4a41-8736-7d3182632eca) from Async(default) in 0.55ms
+ChatChannel transmitting {"id"=>11, "created_at"=>"08:19", "content"=>"sasaas"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:20:07 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:20:07 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:20:07 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"assasasa"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "assasasa"], ["created_at", "2018-04-03 08:20:10.331517"], ["updated_at", "2018-04-03 08:20:10.331517"]]
+  [1m[35m (27.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 1f1b0c64-07f8-4725-8871-ced63d7499a2) to Async(default) with arguments: #<GlobalID:0x00000002a2fba0 @uri=#<URI::GID gid://chat-app/ChatMessage/12>>
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [1f1b0c64-07f8-4725-8871-ced63d7499a2] Performing ChatMessageCreationEventBroadcastJob (Job ID: 1f1b0c64-07f8-4725-8871-ced63d7499a2) from Async(default) with arguments: #<GlobalID:0x00000002a17488 @uri=#<URI::GID gid://chat-app/ChatMessage/12>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [1f1b0c64-07f8-4725-8871-ced63d7499a2] [ActionCable] Broadcasting to chat_channel: {:id=>12, :created_at=>"08:20", :content=>"assasasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [1f1b0c64-07f8-4725-8871-ced63d7499a2] Performed ChatMessageCreationEventBroadcastJob (Job ID: 1f1b0c64-07f8-4725-8871-ced63d7499a2) from Async(default) in 0.88ms
+ChatChannel transmitting {"id"=>12, "created_at"=>"08:20", "content"=>"assasasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:22:30 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:22:31 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:22:31 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"saassasa"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "saassasa"], ["created_at", "2018-04-03 08:22:33.605098"], ["updated_at", "2018-04-03 08:22:33.605098"]]
+  [1m[35m (110.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 7aa5d8e1-ffb4-417b-9f2d-19bf3de99869) to Async(default) with arguments: #<GlobalID:0x000000021c75f8 @uri=#<URI::GID gid://chat-app/ChatMessage/13>>
+  [1m[36mChatMessage Load (1.0ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [7aa5d8e1-ffb4-417b-9f2d-19bf3de99869] Performing ChatMessageCreationEventBroadcastJob (Job ID: 7aa5d8e1-ffb4-417b-9f2d-19bf3de99869) from Async(default) with arguments: #<GlobalID:0x0000000218c548 @uri=#<URI::GID gid://chat-app/ChatMessage/13>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [7aa5d8e1-ffb4-417b-9f2d-19bf3de99869] [ActionCable] Broadcasting to chat_channel: {:id=>13, :created_at=>"08:22", :content=>"saassasa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [7aa5d8e1-ffb4-417b-9f2d-19bf3de99869] Performed ChatMessageCreationEventBroadcastJob (Job ID: 7aa5d8e1-ffb4-417b-9f2d-19bf3de99869) from Async(default) in 1.28ms
+ChatChannel transmitting {"id"=>13, "created_at"=>"08:22", "content"=>"saassasa"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:06 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:24:07 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:07 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:12 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:24:12 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:12 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:25 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:24:26 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:26 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:27 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:24:28 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:24:28 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:28:46 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:28:46 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:28:46 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:29:20 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:29:20 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:29:20 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:29:39 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:29:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:29:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:30:12 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:30:13 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:30:13 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"asasasasasasas"})
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asasasasasasas"], ["created_at", "2018-04-03 08:30:18.184165"], ["updated_at", "2018-04-03 08:30:18.184165"]]
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 9379fc06-1ced-4380-abef-8b17cdc885d7) to Async(default) with arguments: #<GlobalID:0x0000000212eab0 @uri=#<URI::GID gid://chat-app/ChatMessage/14>>
+  [1m[36mChatMessage Load (1.0ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9379fc06-1ced-4380-abef-8b17cdc885d7] Performing ChatMessageCreationEventBroadcastJob (Job ID: 9379fc06-1ced-4380-abef-8b17cdc885d7) from Async(default) with arguments: #<GlobalID:0x00000002101970 @uri=#<URI::GID gid://chat-app/ChatMessage/14>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9379fc06-1ced-4380-abef-8b17cdc885d7] [ActionCable] Broadcasting to chat_channel: {:id=>14, :created_at=>"08:30", :content=>"asasasasasasas"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [9379fc06-1ced-4380-abef-8b17cdc885d7] Performed ChatMessageCreationEventBroadcastJob (Job ID: 9379fc06-1ced-4380-abef-8b17cdc885d7) from Async(default) in 1.12ms
+ChatChannel transmitting {"id"=>14, "created_at"=>"08:30", "content"=>"asasasasasasas"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:30:32 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:30:33 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:30:33 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:30:35.316437"], ["updated_at", "2018-04-03 08:30:35.316437"]]
+  [1m[35m (64.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 33264691-25c0-48ef-afb4-c0527e0dc621) to Async(default) with arguments: #<GlobalID:0x0000000196bad0 @uri=#<URI::GID gid://chat-app/ChatMessage/15>>
+  [1m[36mChatMessage Load (1.1ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [33264691-25c0-48ef-afb4-c0527e0dc621] Performing ChatMessageCreationEventBroadcastJob (Job ID: 33264691-25c0-48ef-afb4-c0527e0dc621) from Async(default) with arguments: #<GlobalID:0x00000001555dd8 @uri=#<URI::GID gid://chat-app/ChatMessage/15>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [33264691-25c0-48ef-afb4-c0527e0dc621] [ActionCable] Broadcasting to chat_channel: {:id=>15, :created_at=>"08:30", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [33264691-25c0-48ef-afb4-c0527e0dc621] Performed ChatMessageCreationEventBroadcastJob (Job ID: 33264691-25c0-48ef-afb4-c0527e0dc621) from Async(default) in 1.19ms
+ChatChannel transmitting {"id"=>15, "created_at"=>"08:30", "content"=>""} (via streamed from chat_channel)
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:30:38.454926"], ["updated_at", "2018-04-03 08:30:38.454926"]]
+  [1m[35m (32.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 88e32a39-8d03-48bf-be0d-11c55bb0d2a8) to Async(default) with arguments: #<GlobalID:0x000000013c5ec8 @uri=#<URI::GID gid://chat-app/ChatMessage/16>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [88e32a39-8d03-48bf-be0d-11c55bb0d2a8] Performing ChatMessageCreationEventBroadcastJob (Job ID: 88e32a39-8d03-48bf-be0d-11c55bb0d2a8) from Async(default) with arguments: #<GlobalID:0x00000000c47b60 @uri=#<URI::GID gid://chat-app/ChatMessage/16>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [88e32a39-8d03-48bf-be0d-11c55bb0d2a8] [ActionCable] Broadcasting to chat_channel: {:id=>16, :created_at=>"08:30", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [88e32a39-8d03-48bf-be0d-11c55bb0d2a8] Performed ChatMessageCreationEventBroadcastJob (Job ID: 88e32a39-8d03-48bf-be0d-11c55bb0d2a8) from Async(default) in 1.17ms
+ChatChannel transmitting {"id"=>16, "created_at"=>"08:30", "content"=>""} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:31:36 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:31:36 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:31:36 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:31:38.827454"], ["updated_at", "2018-04-03 08:31:38.827454"]]
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: ebe886b7-e515-4f2e-b225-6e464fb2a01f) to Async(default) with arguments: #<GlobalID:0x00000002d34828 @uri=#<URI::GID gid://chat-app/ChatMessage/17>>
+  [1m[36mChatMessage Load (0.4ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ebe886b7-e515-4f2e-b225-6e464fb2a01f] Performing ChatMessageCreationEventBroadcastJob (Job ID: ebe886b7-e515-4f2e-b225-6e464fb2a01f) from Async(default) with arguments: #<GlobalID:0x00000002d0d3e0 @uri=#<URI::GID gid://chat-app/ChatMessage/17>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ebe886b7-e515-4f2e-b225-6e464fb2a01f] [ActionCable] Broadcasting to chat_channel: {:id=>17, :created_at=>"08:31", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [ebe886b7-e515-4f2e-b225-6e464fb2a01f] Performed ChatMessageCreationEventBroadcastJob (Job ID: ebe886b7-e515-4f2e-b225-6e464fb2a01f) from Async(default) in 0.38ms
+ChatChannel transmitting {"id"=>17, "created_at"=>"08:31", "content"=>""} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:32:21 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:32:22 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:32:22 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:32:22.843035"], ["updated_at", "2018-04-03 08:32:22.843035"]]
+  [1m[35m (48.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: bf0a2f0a-74e7-4950-9591-eec9b23ae977) to Async(default) with arguments: #<GlobalID:0x00000002bb9188 @uri=#<URI::GID gid://chat-app/ChatMessage/18>>
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bf0a2f0a-74e7-4950-9591-eec9b23ae977] Performing ChatMessageCreationEventBroadcastJob (Job ID: bf0a2f0a-74e7-4950-9591-eec9b23ae977) from Async(default) with arguments: #<GlobalID:0x00000002b8b418 @uri=#<URI::GID gid://chat-app/ChatMessage/18>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bf0a2f0a-74e7-4950-9591-eec9b23ae977] [ActionCable] Broadcasting to chat_channel: {:id=>18, :created_at=>"08:32", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bf0a2f0a-74e7-4950-9591-eec9b23ae977] Performed ChatMessageCreationEventBroadcastJob (Job ID: bf0a2f0a-74e7-4950-9591-eec9b23ae977) from Async(default) in 0.94ms
+ChatChannel transmitting {"id"=>18, "created_at"=>"08:32", "content"=>""} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:32:56 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:32:57 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:32:57 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:32:58.979795"], ["updated_at", "2018-04-03 08:32:58.979795"]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 019b50bf-0097-4382-9084-302bf4401183) to Async(default) with arguments: #<GlobalID:0x00000002a94460 @uri=#<URI::GID gid://chat-app/ChatMessage/19>>
+  [1m[36mChatMessage Load (1.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [019b50bf-0097-4382-9084-302bf4401183] Performing ChatMessageCreationEventBroadcastJob (Job ID: 019b50bf-0097-4382-9084-302bf4401183) from Async(default) with arguments: #<GlobalID:0x00000002a765c8 @uri=#<URI::GID gid://chat-app/ChatMessage/19>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [019b50bf-0097-4382-9084-302bf4401183] [ActionCable] Broadcasting to chat_channel: {:id=>19, :created_at=>"08:32", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [019b50bf-0097-4382-9084-302bf4401183] Performed ChatMessageCreationEventBroadcastJob (Job ID: 019b50bf-0097-4382-9084-302bf4401183) from Async(default) in 1.04ms
+ChatChannel transmitting {"id"=>19, "created_at"=>"08:32", "content"=>""} (via streamed from chat_channel)
+ChatChannel#create({"content"=>""})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", ""], ["created_at", "2018-04-03 08:36:21.278637"], ["updated_at", "2018-04-03 08:36:21.278637"]]
+  [1m[35m (24.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b) to Async(default) with arguments: #<GlobalID:0x00000002146de0 @uri=#<URI::GID gid://chat-app/ChatMessage/20>>
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b] Performing ChatMessageCreationEventBroadcastJob (Job ID: 5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b) from Async(default) with arguments: #<GlobalID:0x00000002136738 @uri=#<URI::GID gid://chat-app/ChatMessage/20>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b] [ActionCable] Broadcasting to chat_channel: {:id=>20, :created_at=>"08:36", :content=>""}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b] Performed ChatMessageCreationEventBroadcastJob (Job ID: 5b8ca0d2-b2a9-4ec6-8115-eac2a9f5e15b) from Async(default) in 0.47ms
+ChatChannel transmitting {"id"=>20, "created_at"=>"08:36", "content"=>""} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:36:50 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:36:50 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:36:50 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"})
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"], ["created_at", "2018-04-03 08:37:00.447697"], ["updated_at", "2018-04-03 08:37:00.447697"]]
+  [1m[35m (24.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: bbf3e80d-16c0-43cf-a7c4-e11b3498c644) to Async(default) with arguments: #<GlobalID:0x000000018371c8 @uri=#<URI::GID gid://chat-app/ChatMessage/21>>
+  [1m[36mChatMessage Load (0.7ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bbf3e80d-16c0-43cf-a7c4-e11b3498c644] Performing ChatMessageCreationEventBroadcastJob (Job ID: bbf3e80d-16c0-43cf-a7c4-e11b3498c644) from Async(default) with arguments: #<GlobalID:0x0000000145b478 @uri=#<URI::GID gid://chat-app/ChatMessage/21>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bbf3e80d-16c0-43cf-a7c4-e11b3498c644] [ActionCable] Broadcasting to chat_channel: {:id=>21, :created_at=>"08:37", :content=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [bbf3e80d-16c0-43cf-a7c4-e11b3498c644] Performed ChatMessageCreationEventBroadcastJob (Job ID: bbf3e80d-16c0-43cf-a7c4-e11b3498c644) from Async(default) in 0.73ms
+ChatChannel transmitting {"id"=>21, "created_at"=>"08:37", "content"=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"})
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"], ["created_at", "2018-04-03 08:37:14.796057"], ["updated_at", "2018-04-03 08:37:14.796057"]]
+  [1m[35m (29.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 8b0368f6-99d4-452e-98ad-ae73d505668a) to Async(default) with arguments: #<GlobalID:0x00000002e71f88 @uri=#<URI::GID gid://chat-app/ChatMessage/22>>
+  [1m[36mChatMessage Load (1.0ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8b0368f6-99d4-452e-98ad-ae73d505668a] Performing ChatMessageCreationEventBroadcastJob (Job ID: 8b0368f6-99d4-452e-98ad-ae73d505668a) from Async(default) with arguments: #<GlobalID:0x00000002e512d8 @uri=#<URI::GID gid://chat-app/ChatMessage/22>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8b0368f6-99d4-452e-98ad-ae73d505668a] [ActionCable] Broadcasting to chat_channel: {:id=>22, :created_at=>"08:37", :content=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [8b0368f6-99d4-452e-98ad-ae73d505668a] Performed ChatMessageCreationEventBroadcastJob (Job ID: 8b0368f6-99d4-452e-98ad-ae73d505668a) from Async(default) in 1.26ms
+ChatChannel transmitting {"id"=>22, "created_at"=>"08:37", "content"=>"asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwefewfwfewassa asassaasssssssssssss asssssssssssssssssssss asewfwfwe... (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:38:40 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:38:40 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:38:40 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"dssdssdds"})
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "dssdssdds"], ["created_at", "2018-04-03 08:38:44.088332"], ["updated_at", "2018-04-03 08:38:44.088332"]]
+  [1m[35m (26.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 2a94475f-f593-4acf-830b-538bdff0a2f4) to Async(default) with arguments: #<GlobalID:0x00000002c511b8 @uri=#<URI::GID gid://chat-app/ChatMessage/23>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2a94475f-f593-4acf-830b-538bdff0a2f4] Performing ChatMessageCreationEventBroadcastJob (Job ID: 2a94475f-f593-4acf-830b-538bdff0a2f4) from Async(default) with arguments: #<GlobalID:0x00000002c286f0 @uri=#<URI::GID gid://chat-app/ChatMessage/23>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2a94475f-f593-4acf-830b-538bdff0a2f4] [ActionCable] Broadcasting to chat_channel: {:id=>23, :created_at=>"08:38", :content=>"dssdssdds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [2a94475f-f593-4acf-830b-538bdff0a2f4] Performed ChatMessageCreationEventBroadcastJob (Job ID: 2a94475f-f593-4acf-830b-538bdff0a2f4) from Async(default) in 1.08ms
+ChatChannel transmitting {"id"=>23, "created_at"=>"08:38", "content"=>"dssdssdds"} (via streamed from chat_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:38:58 +0300
+ChatChannel stopped streaming from chat_channel
+Started GET "/cable" for 127.0.0.1 at 2018-04-03 11:38:58 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-03 11:38:58 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+ChatChannel#create({"content"=>"dssdsddsds"})
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "dssdsddsds"], ["created_at", "2018-04-03 08:39:01.424797"], ["updated_at", "2018-04-03 08:39:01.424797"]]
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 3f0f8fe1-9ac7-413d-9755-6b44ee31f29c) to Async(default) with arguments: #<GlobalID:0x00000002b36b48 @uri=#<URI::GID gid://chat-app/ChatMessage/24>>
+  [1m[36mChatMessage Load (0.8ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [3f0f8fe1-9ac7-413d-9755-6b44ee31f29c] Performing ChatMessageCreationEventBroadcastJob (Job ID: 3f0f8fe1-9ac7-413d-9755-6b44ee31f29c) from Async(default) with arguments: #<GlobalID:0x00000002b19f48 @uri=#<URI::GID gid://chat-app/ChatMessage/24>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [3f0f8fe1-9ac7-413d-9755-6b44ee31f29c] [ActionCable] Broadcasting to chat_channel: {:id=>24, :created_at=>"08:39", :content=>"dssdsddsds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [3f0f8fe1-9ac7-413d-9755-6b44ee31f29c] Performed ChatMessageCreationEventBroadcastJob (Job ID: 3f0f8fe1-9ac7-413d-9755-6b44ee31f29c) from Async(default) in 1.05ms
+ChatChannel transmitting {"id"=>24, "created_at"=>"08:39", "content"=>"dssdsddsds"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"sddssdds"})
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sddssdds"], ["created_at", "2018-04-03 08:39:03.415713"], ["updated_at", "2018-04-03 08:39:03.415713"]]
+  [1m[35m (26.3ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: f5b32343-36ee-4649-a989-a5aa39b2dcf8) to Async(default) with arguments: #<GlobalID:0x00000002acf330 @uri=#<URI::GID gid://chat-app/ChatMessage/25>>
+  [1m[36mChatMessage Load (1.2ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [f5b32343-36ee-4649-a989-a5aa39b2dcf8] Performing ChatMessageCreationEventBroadcastJob (Job ID: f5b32343-36ee-4649-a989-a5aa39b2dcf8) from Async(default) with arguments: #<GlobalID:0x00000002abe990 @uri=#<URI::GID gid://chat-app/ChatMessage/25>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [f5b32343-36ee-4649-a989-a5aa39b2dcf8] [ActionCable] Broadcasting to chat_channel: {:id=>25, :created_at=>"08:39", :content=>"sddssdds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [f5b32343-36ee-4649-a989-a5aa39b2dcf8] Performed ChatMessageCreationEventBroadcastJob (Job ID: f5b32343-36ee-4649-a989-a5aa39b2dcf8) from Async(default) in 1.45ms
+ChatChannel transmitting {"id"=>25, "created_at"=>"08:39", "content"=>"sddssdds"} (via streamed from chat_channel)
+ChatChannel#create({"content"=>"sddsdsdsds"})
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "chat_messages" ("content", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["content", "sddsdsdsds"], ["created_at", "2018-04-03 08:39:05.458361"], ["updated_at", "2018-04-03 08:39:05.458361"]]
+  [1m[35m (26.6ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ChatMessageCreationEventBroadcastJob (Job ID: 4730abf8-a823-4963-a6f3-247958f205f9) to Async(default) with arguments: #<GlobalID:0x00000002a81298 @uri=#<URI::GID gid://chat-app/ChatMessage/26>>
+  [1m[36mChatMessage Load (1.0ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" WHERE "chat_messages"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [4730abf8-a823-4963-a6f3-247958f205f9] Performing ChatMessageCreationEventBroadcastJob (Job ID: 4730abf8-a823-4963-a6f3-247958f205f9) from Async(default) with arguments: #<GlobalID:0x00000002a61ce0 @uri=#<URI::GID gid://chat-app/ChatMessage/26>>
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [4730abf8-a823-4963-a6f3-247958f205f9] [ActionCable] Broadcasting to chat_channel: {:id=>26, :created_at=>"08:39", :content=>"sddsdsdsds"}
+[ActiveJob] [ChatMessageCreationEventBroadcastJob] [4730abf8-a823-4963-a6f3-247958f205f9] Performed ChatMessageCreationEventBroadcastJob (Job ID: 4730abf8-a823-4963-a6f3-247958f205f9) from Async(default) in 1.48ms
+ChatChannel transmitting {"id"=>26, "created_at"=>"08:39", "content"=>"sddsdsdsds"} (via streamed from chat_channel)
+  [1m[36mChatMessage Load (0.3ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" ORDER BY "chat_messages"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mChatMessage Load (0.5ms)[0m  [1m[34mSELECT  "chat_messages".* FROM "chat_messages" LIMIT $1[0m  [["LIMIT", 11]]
