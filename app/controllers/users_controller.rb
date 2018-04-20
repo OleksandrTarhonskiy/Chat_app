@@ -4,18 +4,16 @@ class UsersController < ApplicationController
   expose :user, -> { User.find_by_token(params[:user]) }
 
   def index
-    render json: User.all
+    render json: current_user
   end
 
   def create
     user = User.new(user_params)
 
     if user.password === user.password_confirmation
-
       email_exists = User.find_by(email: user.email)
 
       if !email_exists
-
         user.token = SecureRandom.hex(15)
 
           if user.save
