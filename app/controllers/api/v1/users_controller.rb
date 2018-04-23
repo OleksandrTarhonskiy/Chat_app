@@ -1,5 +1,4 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :index]
 
   expose :user, -> { User.find_by_token(params[:user]) }
 
@@ -14,8 +13,6 @@ class Api::V1::UsersController < ApplicationController
       email_exists = User.find_by(email: user.email)
 
       if !email_exists
-        user.token = SecureRandom.hex(15)
-
           if user.save
             render_api({ message: 'You have successfully signed up' }, 200)
           else
@@ -35,6 +32,6 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

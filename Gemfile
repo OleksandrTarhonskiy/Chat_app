@@ -13,6 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'decent_exposure'
 gem 'rack-cors'
 gem 'active_model_serializers'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platforms: %I[mri mingw x64_mingw]

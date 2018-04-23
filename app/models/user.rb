@@ -1,11 +1,16 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  before_create :generate_authentication_token!
+
   has_many :chat_messages
-  has_secure_token :token
 
-  has_secure_password
-
-  validates :email, presence: true, uniqueness: true
-  validates :last_name,  presence: true
-  validates :first_name, presence: true
-  validates :password, :password_confirmation, presence: true, length: { minimum: 6 }
+  def generate_authentication_token!
+    begin
+      self.auth_token = Devise.friendly_token
+    end while self.class.exists?(auth_token: auth_token)
+  end
 end
