@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:create, :index, :email_confirmation]
 
   expose :user, -> { User.find_by_token(params[:user]) }
