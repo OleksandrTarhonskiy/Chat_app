@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
   def create
     if user
       if user.authenticate(session_params[:password])
-        render_api(user, 200, serializer: SessionSerializer)
+        if user.confirmed
+          render_api(user, 200, serializer: SessionSerializer)
+        else
+          render_api({ message: 'Confirm your email' }, 207)
+        end
       else
         render_api({ message: 'Wrong email or password' }, 207)
       end
