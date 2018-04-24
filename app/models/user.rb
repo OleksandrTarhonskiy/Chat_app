@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :chat_messages
-  has_secure_token :token
 
   has_secure_password
 
