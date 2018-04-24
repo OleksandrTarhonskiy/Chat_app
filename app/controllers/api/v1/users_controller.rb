@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
   expose :user, -> { User.find_by_token(params[:user]) }
 
   def index
-    render json: current_user
+    render json: User.all
   end
 
   def create
