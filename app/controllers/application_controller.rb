@@ -1,10 +1,6 @@
 class ApplicationController < ActionController::API
   before_action :authenticate_user!
 
-  def current_user
-    current_user ||= User.find_by(token: request.headers['Authorization'])
-  end
-
   def render_api(object, status = :ok, options = {})
     if object.respond_to?(:errors) && object.errors.present?
       render json: { message: object.errors.full_messages.to_sentence },
@@ -12,6 +8,10 @@ class ApplicationController < ActionController::API
     else
       render({ json: object, status: status }.merge(options))
     end
+  end
+
+  def current_user
+    current_user ||= User.find_by(token: request.headers['Authorization'])
   end
 
   private

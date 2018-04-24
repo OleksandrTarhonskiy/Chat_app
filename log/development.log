@@ -4598,3 +4598,318 @@ NameError (undefined local variable or method `token' for #<Api::V1::SessionsCon
 app/controllers/application_controller.rb:5:in `current_user'
 app/controllers/application_controller.rb:13:in `render_api'
 app/controllers/api/v1/sessions_controller.rb:9:in `create'
+Started POST "/api/v1/sessions" for 127.0.0.1 at 2018-04-24 22:30:47 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"draste@draste.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "draste@draste.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered SessionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 255ms (Views: 138.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-04-24 22:30:59 +0300
+Started GET "/api/v1/messages" for 127.0.0.1 at 2018-04-24 22:31:00 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-24 22:31:00 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Processing by Api::V1::MessagesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 20ms (ActiveRecord: 9.8ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-24 22:32:17 +0300
+ChatChannel stopped streaming from chat_channel
+Started POST "/api/v1/sessions" for 127.0.0.1 at 2018-04-24 22:32:32 +0300
+Processing by Api::V1::SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"draste@draste.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "draste@draste.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered SessionSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 99ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-04-24 22:41:37 +0300
+Started GET "/api/v1/messages" for 127.0.0.1 at 2018-04-24 22:41:37 +0300
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-24 22:41:37 +0300
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: keep-alive, Upgrade, HTTP_UPGRADE: websocket)
+Processing by Api::V1::MessagesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 20ms (ActiveRecord: 4.0ms)
+
+
+ChatChannel is transmitting the subscription confirmation
+ChatChannel is streaming from chat_channel
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2018-04-24 22:41:46 +0300
+ChatChannel stopped streaming from chat_channel
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 22:42:06 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"zxxzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"zxxzxz@assasa.com", "last_name"=>"zxxzxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zxxzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zxxzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (102.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "zxxzxz@assasa.com"], ["first_name", "zxxzxz@assasa.com"], ["last_name", "zxxzxz@assasa.com"], ["password_digest", "$2a$10$9NzoCbTDg0eTRLtA2mI55eVbE3xJjb.1wVFuckW9SF91KHGUX7KFG"], ["token", "ebcd2d948df567c808fa4d36695908"], ["created_at", "2018-04-24 19:42:06.568031"], ["updated_at", "2018-04-24 19:42:06.568031"]]
+  [1m[35m (193.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 200 OK in 600ms (Views: 119.0ms | ActiveRecord: 306.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 22:43:25 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"zxxzxsaz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"zxxzxasz@assasa.com", "last_name"=>"zxxzxsaz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zxxzxsaz@assasa.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zxxzxsaz@assasa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "zxxzxsaz@assasa.com"], ["first_name", "zxxzxasz@assasa.com"], ["last_name", "zxxzxsaz@assasa.com"], ["password_digest", "$2a$10$8gRk1E60HonbGj3yhtc4M.LoB3Yn10N2O.KfD9Z1XwN3e5qI1pb.G"], ["token", "ec990d1a9d611d9df079703683542d"], ["created_at", "2018-04-24 19:43:25.189286"], ["updated_at", "2018-04-24 19:43:25.189286"]]
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 149ms (Views: 15.9ms | ActiveRecord: 35.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:07:38 +0300
+  [1m[35m (63.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xzxzzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xzxzzxz@assasa.com", "last_name"=>"xzxzzxz@assasa.com"}}
+Unpermitted parameters: :first_name, :last_name
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 3.2ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'firstname' for User.):
+  
+app/controllers/api/v1/users_controller.rb:7:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:08:00 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xzxzzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xzxzzxz@assasa.com", "last_name"=>"xzxzzxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xzxzzxz@assasa.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x0000000368c740>):
+  
+app/controllers/api/v1/users_controller.rb:12:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:08:26 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xzxzzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xzxzzxz@assasa.com", "last_name"=>"xzxzzxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xzxzzxz@assasa.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 181ms (ActiveRecord: 0.3ms)
+
+
+  
+NameError (undefined local variable or method `username_exists' for #<Api::V1::UsersController:0x00000003494668>):
+  
+app/controllers/api/v1/users_controller.rb:12:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:09:32 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xzxzzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xzxzzxz@assasa.com", "last_name"=>"xzxzzxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xzxzzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xzxzzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (20.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "xzxzzxz@assasa.com"], ["first_name", "xzxzzxz@assasa.com"], ["last_name", "xzxzzxz@assasa.com"], ["password_digest", "$2a$10$0ZGlFCfucIvUwBaPgHzYSupG.WnynDOp8mlW9x/oY0TjYutMQsMqG"], ["token", "0a229ea34c35c9ce2b25991ca44d36"], ["created_at", "2018-04-24 20:09:32.908247"], ["updated_at", "2018-04-24 20:09:32.908247"]]
+  [1m[35m (77.6ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#registration_confirmation: processed outbound mail in 41.4ms
+Completed 500 Internal Server Error in 722ms (ActiveRecord: 101.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template user_mailer/registration_confirmation with "mailer". Searched in:
+  * "user_mailer"
+):
+  
+app/mailers/user_mailer.rb:7:in `registration_confirmation'
+app/controllers/api/v1/users_controller.rb:16:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:11:12 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xassasazxzzxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xzxzsaaszxz@assasa.com", "last_name"=>"xzxzzsaasxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (16.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xassasazxzzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xassasazxzzxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "xassasazxzzxz@assasa.com"], ["first_name", "xzxzsaaszxz@assasa.com"], ["last_name", "xzxzzsaasxz@assasa.com"], ["password_digest", "$2a$10$AAkUqWhWezOI/rMm36ShA.RV65ldyoULuSJ6P6VM5oxXYh9/QAUUu"], ["token", "9780eed01de1b84a25afae76e816d8"], ["created_at", "2018-04-24 20:11:12.355430"], ["updated_at", "2018-04-24 20:11:12.355430"]]
+  [1m[35m (31.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (8.9ms)
+UserMailer#registration_confirmation: processed outbound mail in 76.3ms
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 48.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `full_name' for #<User:0x000000042ef8c0>):
+    1: Hi, <%= @user.full_name %>
+    2: <br>
+    3: Email confirmation:
+    4: <br>
+  
+app/views/user_mailer/registration_confirmation.html.erb:1:in `_app_views_user_mailer_registration_confirmation_html_erb__2564446270816486110_34857620'
+app/mailers/user_mailer.rb:7:in `registration_confirmation'
+app/controllers/api/v1/users_controller.rb:16:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:11:51 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"xassasazxzdszxz@assasa.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"xassasazxzdszxz@assasa.com", "last_name"=>"xassasazxzdszxz@assasa.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xassasazxzdszxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "xassasazxzdszxz@assasa.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "xassasazxzdszxz@assasa.com"], ["first_name", "xassasazxzdszxz@assasa.com"], ["last_name", "xassasazxzdszxz@assasa.com"], ["password_digest", "$2a$10$Ma91LrYoW5qlbPr3BWTi2u6mpQ9B3JIJUHoXB8RUikWGM2H35StfW"], ["token", "b82318f76032e714ac051089a15d0f"], ["created_at", "2018-04-24 20:11:51.910215"], ["updated_at", "2018-04-24 20:11:51.910215"]]
+  [1m[35m (72.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (0.5ms)
+UserMailer#registration_confirmation: processed outbound mail in 462.8ms
+Sent mail to xassasazxzdszxz@assasa.com (2559.1ms)
+Date: Tue, 24 Apr 2018 23:11:52 +0300
+From: targonsky97@gmail.com
+To: "xassasazxzdszxz@assasa.com" <xassasazxzdszxz@assasa.com>
+Message-ID: <5adf8f88729b7_52a01a0add8756b1@Lenovo-ideapad-320-15IKB.mail>
+Subject: Registration Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+Email confirmation:
+
+<a href="http://localhost:3000/#/users/email_confirmation?email_token=b82318f76032e714ac051089a15d0f">Confirm my Email</a>
+
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.07ms)
+Completed 200 OK in 3272ms (Views: 80.7ms | ActiveRecord: 74.9ms)
+
+
+Started POST "/api/v1/users/email_confirmation" for 127.0.0.1 at 2018-04-24 23:12:45 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users/email_confirmation"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:14:06 +0300
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"sddsdsd@ssddsdsd.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"sddsdsd@ssddsdsd.com", "last_name"=>"sddsdsd@ssddsdsd.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sddsdsd@ssddsdsd.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "sddsdsd@ssddsdsd.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "sddsdsd@ssddsdsd.com"], ["first_name", "sddsdsd@ssddsdsd.com"], ["last_name", "sddsdsd@ssddsdsd.com"], ["password_digest", "$2a$10$Ey7S.DWO8G1KBUuhitsTI.F/J1kSeQ34X7hR6Ib/69jcUMxitPTb."], ["token", "2584d28e369fa3bc80a17bbe38b2c2"], ["created_at", "2018-04-24 20:14:06.499751"], ["updated_at", "2018-04-24 20:14:06.499751"]]
+  [1m[35m (116.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (0.6ms)
+UserMailer#registration_confirmation: processed outbound mail in 28.9ms
+Sent mail to sddsdsd@ssddsdsd.com (1748.6ms)
+Date: Tue, 24 Apr 2018 23:14:06 +0300
+From: targonsky97@gmail.com
+To: "sddsdsd@ssddsdsd.com" <sddsdsd@ssddsdsd.com>
+Message-ID: <5adf900ea490e_52a01a0aedc7578@Lenovo-ideapad-320-15IKB.mail>
+Subject: Registration Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+Email confirmation:
+
+<a href="http://localhost:3000/#/users/email_confirmation?email_token=2584d28e369fa3bc80a17bbe38b2c2">Confirm my Email</a>
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 200 OK in 2025ms (Views: 14.5ms | ActiveRecord: 118.5ms)
+
+
+Started POST "/api/v1/users/email_confirmation" for 127.0.0.1 at 2018-04-24 23:14:21 +0300
+Processing by Api::V1::UsersController#email_confirmation as HTML
+  Parameters: {"user"=>"2584d28e369fa3bc80a17bbe38b2c2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "2584d28e369fa3bc80a17bbe38b2c2"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `confirmed' for #<User:0x007f9fa4d44108>):
+  
+app/controllers/api/v1/users_controller.rb:31:in `email_confirmation'
+  [1m[35m (49.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5611949142403597455)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddEmailConfirmedToUser (20180424201531)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (930.2ms)[0m  [1m[35mALTER TABLE "users" ADD "confirmed" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180424201531"]]
+  [1m[35m (66.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (79.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5611949142403597455)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2018-04-24 23:16:28 +0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as HTML
+  Parameters: {"user"=>{"email"=>"assasa@assaas.com", "firstname"=>"", "lastname"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "first_name"=>"assasa@assaas.com", "last_name"=>"assasa@assaas.com"}}
+Unpermitted parameters: :firstname, :lastname
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "assasa@assaas.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "assasa@assaas.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "first_name", "last_name", "password_digest", "token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "assasa@assaas.com"], ["first_name", "assasa@assaas.com"], ["last_name", "assasa@assaas.com"], ["password_digest", "$2a$10$0oKN2MYt0RkRn6/3crb4luIp2vU07W3qXNxc02.LtkX//IxumZaoG"], ["token", "a666be82fbb037c3c26beb2449e0ff"], ["created_at", "2018-04-24 20:16:28.662691"], ["updated_at", "2018-04-24 20:16:28.662691"]]
+  [1m[35m (28.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (9.0ms)
+UserMailer#registration_confirmation: processed outbound mail in 299.1ms
+Sent mail to assasa@assaas.com (1673.6ms)
+Date: Tue, 24 Apr 2018 23:16:29 +0300
+From: targonsky97@gmail.com
+To: "assasa@assaas.com" <assasa@assaas.com>
+Message-ID: <5adf909d5b952_555d213ccdc43843@Lenovo-ideapad-320-15IKB.mail>
+Subject: Registration Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+Email confirmation:
+
+<a href="http://localhost:3000/#/users/email_confirmation?email_token=a666be82fbb037c3c26beb2449e0ff">Confirm my Email</a>
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 200 OK in 2526ms (Views: 15.3ms | ActiveRecord: 35.6ms)
+
+
+Started POST "/api/v1/users/email_confirmation" for 127.0.0.1 at 2018-04-24 23:16:41 +0300
+Processing by Api::V1::UsersController#email_confirmation as HTML
+  Parameters: {"user"=>"a666be82fbb037c3c26beb2449e0ff"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT $2[0m  [["token", "a666be82fbb037c3c26beb2449e0ff"], ["LIMIT", 1]]
+  [1m[35mSQL (38.3ms)[0m  [1m[33mUPDATE "users" SET "confirmed" = 't' WHERE "users"."id" = $1[0m  [["id", 10]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 67ms (Views: 2.1ms | ActiveRecord: 45.3ms)
+
+
